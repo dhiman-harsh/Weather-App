@@ -1,0 +1,12 @@
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: whitesmoke;
+}
+
+.weather-logo {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ccc;
+    
+}
