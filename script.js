@@ -110,7 +110,6 @@ const getTemp = async (city) => {
     await geoCodingResult(city)
     let response = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,surface_pressure,wind_speed_10m,wind_direction_10m,is_day,weather_code`)
     let data = await response.json()
-    console.log(data)
 
     let hourly = data.hourly
     let temp = hourly.temperature_2m
@@ -144,8 +143,7 @@ showWeatherData = async (cityName) => {
         currentCity.innerHTML = `${cityName}`
         tempValue.innerHTML = `${temp}&deg;`
     } else {
-        tempValue.innerHTML = `Error!`
-        tempValue.style.color = 'red'
+        tempValue.innerHTML = `...`
         alert('Something broken! try again later')
     }
 
@@ -157,7 +155,6 @@ showWeatherData = async (cityName) => {
 suggestions.addEventListener('click', (e) => {
     if (e.target.matches('li')) {
         let cityName = e.target.innerHTML.toLowerCase()
-        console.log(cityName)
         searchBox.value = `${e.target.innerHTML}`
         showWeatherData(e.target.innerHTML)
     }

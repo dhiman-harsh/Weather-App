@@ -35,13 +35,15 @@ body {
 
 nav {
     padding: 20px 36px;
-    background-color: #000816;
+    background-color: #000816a1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
-    /* position: sticky; */
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(4px);
 }
 
 .search {
@@ -60,6 +62,7 @@ input[type="search"] {
     border-radius: 40px;
     background-color: #424242;
     color: rgb(209, 209, 209);
+    box-shadow: 2px 2px 8px #222;
 }
 
 ul li {
@@ -110,6 +113,9 @@ ul li {
     align-items: center;
     gap: 16px;
     padding: 16px 0 24px 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 3px 3px 10px #000;
 }
 
 .weather-details {
@@ -145,7 +151,7 @@ ul li {
 .weather-add-details ul {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -159,6 +165,7 @@ ul li {
     width: 100%;
     padding: 16px;
     border-radius: 16px;
+    box-shadow: 3px 3px 10px #000;
 }
 
 .weather-add-details .item .item-label {
@@ -172,4 +179,8 @@ ul li {
 
 .unit {
     font-size: 20px;
+}
+
+@media(max-width: 432px) {
+
 }
