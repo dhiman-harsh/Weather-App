@@ -79,7 +79,7 @@ const makeLabel = (name, value, unit) => {
 
 const getCurrentDate = () => {
     let date = new Date()
-    let day = (date.getDay() + 1).toString().padStart(2, '0')
+    let day = (date.getDate()).toString().padStart(2, '0')
     let month = (date.getMonth() + 1).toString().padStart(2, '0')
     let year = date.getFullYear()
     let hour = date.getHours().toString().padStart(2, '0')
@@ -104,11 +104,9 @@ const geoCodingResult = async (city) => {
 }
 
 const getTemp = async (city) => {
-    // if (!lat || !lon) {
-    //     return
-    // }
     await geoCodingResult(city)
     let response = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,surface_pressure,wind_speed_10m,wind_direction_10m,is_day,weather_code`)
+    // console.log(response.status) // 200 OK
     let data = await response.json()
 
     let hourly = data.hourly
@@ -138,7 +136,7 @@ const getTemp = async (city) => {
 }
 
 showWeatherData = async (cityName) => {
-    const temp = await getTemp(cityName)
+    let temp = await getTemp(cityName)
     if (temp) {
         currentCity.innerHTML = `${cityName}`
         tempValue.innerHTML = `${temp}&deg;`
